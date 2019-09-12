@@ -50,11 +50,11 @@ def python_grapgql(event, context):
             "msg": None
         }
 
-    response = {
-        "statusCode": 200,
-        "body": json.dumps(body)
-    }
-    return response
+#     response = {
+#         "statusCode": 200,
+#         "body": json.dumps(body)
+#     }
+    return body
 
 
 def test_python_grapgql():
