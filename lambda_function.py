@@ -36,6 +36,12 @@ def hello(event, context):
 def python_grapgql(event, context):
     operationName = event.get("operationName")
     query = event.get("query")
+    if not query:
+        return {
+            "code": False,
+            "data": None,
+            "msg": "请给query参数"
+        }
     variables = event.get("variables")
     result = schema.execute(query, variables=variables)
     if result.errors:
