@@ -2,3 +2,4 @@ graphene
 rx
 flask
 flask_graphql
+jwt
