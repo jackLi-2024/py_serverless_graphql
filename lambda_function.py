@@ -14,6 +14,8 @@ import graphene
 import logging
 from api import schema
 from flask import Flask
+from flask import jsonify
+from flask import request
 from flask_graphql import GraphQLView
 
 
@@ -80,4 +82,10 @@ if __name__ == '__main__':
     app = Flask(__name__)
     app.add_url_rule('/graphql', view_func=GraphQLView.as_view('graphql',
                                                                schema=schema, graphiql=True))
+    @app.route("/graphql_api", methods=["POST"])
+    def api():
+        event = request.data
+        event = json.loads(event)
+        return jsonify(python_grapgql(event, None))
+    
     app.run(port=4901, debug=True, host="0.0.0.0")
