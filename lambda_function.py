@@ -19,7 +19,7 @@ from flask import request
 from flask_graphql import GraphQLView
 
 
-def hello(event, context):
+def no_graphql(event, context):
     body = {
         "message": "Go Serverless v1.0! Your function executed successfully!",
         "input": event
@@ -33,7 +33,7 @@ def hello(event, context):
     return response
 
 
-def python_grapgql(event, context):
+def python_graphql(event, context):
     operationName = event.get("operationName")
     query = event.get("query")
     if not query:
